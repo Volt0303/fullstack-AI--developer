@@ -8,6 +8,8 @@ import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 export const Contact = () => {
+  const resumeURL =
+    "../../public/Tomohiro-Komiyama-FlowCV-Resume-20251015 (final).pdf";
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const { toast } = useToast();
@@ -27,9 +29,9 @@ export const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:contact@example.com", label: "Email" },
+    { icon: Github, href: "https://github.com/Volt0303", label: "GitHub" },
+    // { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Mail, href: "shunhosoo@gmail.com", label: "Email" },
   ];
 
   return (
@@ -44,9 +46,10 @@ export const Contact = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center gradient-text">
             Get In Touch
           </h2>
-          
+
           <p className="text-lg text-center text-muted-foreground mb-12">
-            I'm always open to discussing new projects, creative ideas, or opportunities.
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -60,7 +63,9 @@ export const Contact = () => {
               <Input
                 placeholder="Your Name"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 required
                 className="neon-border"
               />
@@ -68,14 +73,18 @@ export const Contact = () => {
                 type="email"
                 placeholder="Your Email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
                 className="neon-border"
               />
               <Textarea
                 placeholder="Your Message"
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 required
                 rows={5}
                 className="neon-border resize-none"
@@ -93,9 +102,9 @@ export const Contact = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="space-y-6"
+              className="flex flex-col space-y-6"
             >
-              <div className="glass-effect rounded-xl p-6">
+              <div className="flex flex-col flex-grow glass-effect rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-4">Connect With Me</h3>
                 <div className="flex flex-col gap-4">
                   {socialLinks.map((link) => (
@@ -118,10 +127,10 @@ export const Contact = () => {
               <Button
                 variant="outline"
                 className="w-full group"
-                onClick={() => window.open("#", "_blank")}
+                onClick={() => window.open(resumeURL, "_blank")}
               >
-                <FileDown className="mr-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
-                Download Resume
+                <FileDown className="mr-2 h-4 w-4 group-hover:scale-125 transition-transform" />
+                Read Resume
               </Button>
             </motion.div>
           </div>
